@@ -25,7 +25,7 @@
 					  <img class="card-img-top" src="<%= item.image_url %>" alt="Card image cap">
 					  <div class="card-block">
 					    <h4 class="card-title"><a href="/food_items/<%= item.id %>"><Strong><%= item.name %></Strong></a></h4>
-					    <p class="card-text" style="margin-left:0px;margin-right:0px"><strong>Price :</strong><%= item.price %> VND</p>
+					    <p class="card-text" style="margin-left:0px;margin-right:0px"><strong>Price :</strong><%= number_with_delimiter(item.price) %> VND</p>
 					    <p class="card-text" style="margin-left:0px;margin-right:0px"><strong>Number of orders :</strong><%= Review.averageRating(item.id) %> time(s)</p>
 					    <p class="card-text" style="margin-left:0px;margin-right:0px"><strong>Rating :</strong><%= OrderDetail.timeorder(item.id) %> star(s)</p>
 					    <p class="card-text" style="margin-left:0px;margin-right:0px"><%= item.description%></p>

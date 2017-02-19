@@ -53,9 +53,9 @@
 			    	<td colspan="2" class="text-left"><strong>TOTAL COST :</strong></td>
 			    	<td colspan="2" class="text-left"><%= 
 			    	 if @order.coupon == "CODERSCHOOL"
-			    	 	number_with_delimiter(@sum.to_d + 20000)
-			    	 else
 			    	 	number_with_delimiter(@sum.to_d/2 + 20000)
+			    	 else
+			    	 	number_with_delimiter(@sum.to_d + 20000)
 			    	 end 
 			    	 %> VND</td>
 			    </tr>
