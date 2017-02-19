@@ -52,7 +52,7 @@ Here's a walkthrough of implemented user stories:
 
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
-[img]http://i.imgur.com/7kdzsQh.gif[/img]
+<img src="http://i.imgur.com/7kdzsQh.gif"/>
 ## Notes
 
 use has_to replace belongs_to in order and order detail table.
