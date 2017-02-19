@@ -1,0 +1,42 @@
+
+<div class="row">
+
+	<nav class="nav nav-pills flex-column flex-sm-row" style="padding-bottom:30px ">
+		<% Section.all.each do |section| %>
+		<%= link_to section.name, root_path(section_id: section.id), class: "lex-sm-fill text-sm-center nav-link #{'active' if params[:section_id] == section.id.to_s}"%>
+		<% end %>
+		<%= form_tag nil, method: 'get', class:"text-left" do%>
+			<div class="form-inline">
+				<%= hidden_field_tag 'section_id', params[:section_id]%>
+				<%= select_tag :sort_column,  options_for_select(['name', 'price'], params[:sort_column]), class: 'form-control'%>
+				<%= select_tag :sort_derection,  options_for_select(['Asc', 'Desc'], params[:sort_derection]), class: 'form-control'%>
+				<%= submit_tag "sort", class:"btn btn-primary"%>
+			</div>
+		<% end %>
+	</nav>
+	<hr>
+	<div class="col-md-12" style="min-height: 1100px">
+		<div class="bs-example" data-example-id="thumbnails-with-custom-content">
+			<div class="row">
+				<% @listFoods.each do |item| %>
+				<div class="col-sm-6 col-md-4">
+					
+					<div class="card">
+					  <img class="card-img-top" src="<%= item.image_url %>" alt="Card image cap">
+					  <div class="card-block">
+					    <h4 class="card-title"><a href="/food_items/<%= item.id %>"><Strong><%= item.name %></Strong></a></h4>
+					    <p class="card-text" style="margin-left:0px;margin-right:0px"><strong>Price :</strong><%= item.price %> VND</p>
+					    <p class="card-text" style="margin-left:0px;margin-right:0px"><strong>Number of orders :</strong><%= Review.averageRating(item.id) %> time(s)</p>
+					    <p class="card-text" style="margin-left:0px;margin-right:0px"><strong>Rating :</strong><%= OrderDetail.timeorder(item.id) %> star(s)</p>
+					    <p class="card-text" style="margin-left:0px;margin-right:0px"><%= item.description%></p>
+					    <a href="/order_details/add/<%= item.id.to_s %>" class="btn btn-success">Order now</a>
+					  </div>
+					</div>
+					
+				</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+
+</div>
